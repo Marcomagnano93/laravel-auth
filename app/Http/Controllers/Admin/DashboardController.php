@@ -16,7 +16,7 @@ class DashboardController extends Controller
         {
             $dashboards = Dashboard::all();
 
-            return view('admin.index', compact('dashboards'));
+            return view('admin.dashboards.index', compact('dashboards'));
         }
 
         /**

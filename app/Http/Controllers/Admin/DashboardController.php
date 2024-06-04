@@ -24,7 +24,7 @@ class DashboardController extends Controller
          */
         public function create()
         {
-            //
+            return view('admin.dashboards.create');
         }
 
         /**
@@ -32,39 +32,64 @@ class DashboardController extends Controller
          */
         public function store(Request $request)
         {
-            //
+
+            $request->validate([
+                'title'=>'required|max:255',
+                'git'=>'required|max:255',
+                'description'=>'required'
+            ]);
+
+            $form_data = $request->all();
+
+            $new_project = Dashboard::create($form_data);
+
+            return to_route('admin.dashboards.show', $new_project);
+    
         }
 
         /**
          * Display the specified resource.
          */
-        public function show(Dashboard $post)
+        public function show(Dashboard $dashboard)
         {
-            //
+            return view('admin.dashboards.show', compact('dashboard'));
         }
 
         /**
          * Show the form for editing the specified resource.
          */
-        public function edit(Dashboard $post)
+        public function edit(Dashboard $dashboard)
         {
-            //
+            return view('admin.dashboards.edit', compact('dashboard'));
         }
 
         /**
          * Update the specified resource in storage.
          */
-        public function update(Request $request, Dashboard $post)
+        public function update(Request $request, Dashboard $dashboard)
         {
-            //
+            $request->validate([
+                'title'=>'required|max:255',
+                'git'=>'required|max:255',
+                'description'=>'required'
+            ]);
+
+            $form_data = $request->all();
+
+            $dashboard->update($form_data);
+
+            return to_route('admin.dashboards.index', $dashboard);
         }
 
         /**
          * Remove the specified resource from storage.
          */
-        public function destroy(Dashboard $post)
+        public function destroy(Dashboard $dashboard)
         {
-            //
+            $dashboard->delete();
+
+            return to_route('admin.dashboards.index');
+
         }
     
 }

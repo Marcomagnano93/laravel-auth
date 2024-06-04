@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('dashboards', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('git');
+            $table->text('description');
             $table->timestamps();
         });
     }

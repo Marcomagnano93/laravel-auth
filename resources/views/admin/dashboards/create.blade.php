@@ -26,9 +26,9 @@
                 <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
             </div>
 
-            <div class="d-flex justify-content-between">
-                <a href="{{route('admin.dashboards.index')}}" class="btn btn-primary btn-lg">Go back</a>
-                <button type="submit" class="btn btn-success btn-lg">Create</button>
+            <div class="d-flex gap-3 my-4">
+                <a href="{{route('admin.dashboards.index')}}" class="btn btn-primary btn-lg">Indietro</a>
+                <button type="submit" class="btn btn-success btn-lg">Crea</button>
             </div>
     
         </form>

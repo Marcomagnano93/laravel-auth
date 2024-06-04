@@ -39,7 +39,7 @@
                 <form action="{{route('admin.dashboards.destroy', $dashboard)}}" method="POST">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger">Delete</button>
+                  <button class="btn btn-danger">Elimina</button>
               </td>
           </tr>
         @endforeach

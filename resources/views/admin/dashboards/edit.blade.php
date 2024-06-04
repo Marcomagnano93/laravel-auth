@@ -6,7 +6,7 @@
 
     <div class="container">
     
-        <h1 class="text-center fs-1">Aggiungi progetto:</h1>
+        <h1 class="text-center fs-1">Modifica progetto: <br> {{ $dashboard->title }}</h1>
     
         <form action="{{route('admin.dashboards.update', $dashboard)}}" method="POST">
             @csrf
@@ -23,12 +23,12 @@
             </div>
 
             <div class="input-group">
-                <span class="input-group-text">Descrizione: </span>
+                <span class="input-group-text">Descrizione</span>
                 <textarea class="form-control" aria-label="With textarea" name="description">{{ $dashboard->description }}</textarea>
             </div>
 
-            <div class="d-flex justify-content-between">
-                <a href="{{route('admin.dashboards.index')}}" class="btn btn-primary btn-lg">Progetti</a>
+            <div class="d-flex gap-3 my-4">
+                <a href="{{route('admin.dashboards.index')}}" class="btn btn-primary btn-lg">Indietro</a>
                 <button type="submit" class="btn btn-success btn-lg">Salva</button>
             </div>
     
